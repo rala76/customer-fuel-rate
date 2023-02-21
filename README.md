@@ -31,7 +31,13 @@ A partner of your company has requested to build a software application that wil
 * "web-vitals": "^2.1.4"
 
 ### Server (Backend) Dependencies:
-* [To be added]
+* "bcryptjs": "^2.4.3",
+* "cookie-parser": "^1.4.6",
+* "dotenv": "^16.0.3",
+* "express": "^4.18.2",
+* "jsonwebtoken": "^9.0.0",
+* "mongoose": "^6.9.2",
+* "nodemon": "^2.0.20"
 
 ---
 
@@ -39,7 +45,7 @@ A partner of your company has requested to build a software application that wil
 - 'npm install' inside client directory
 
 ### To Install Server (Backend) Dependencies:
-- [To be added]
+- 'npm install' inside server directory
 
 ---
 
