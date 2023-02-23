@@ -10,7 +10,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/fuel-quote-history" element={<FuelQuoteHistory />} />
+        {/* <Route exact path="/fuel-quote-history" element={<FuelQuoteHistory />} /> */}
       </Routes>
     </>
   );
