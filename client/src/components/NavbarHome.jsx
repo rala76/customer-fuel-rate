@@ -3,19 +3,8 @@ import { NavLink } from 'react-router-dom';
 import 'bootstrap/js/src/collapse.js';
 import logo from '../assets/group-2-logo.png';
 
-export default function Navbar() {
+export default function NavbarHome() {
     return (
-        // <div>
-        //     <header>
-        //         <h2 className="logo"><img src={logo} alt="logo"/></h2>
-        //         <nav className="navigation">
-        //             <button className="top-menu" id="homeBtn">Home</button>
-        //             <button className="top-menu" id="quoteHistorytn">Quote History</button>
-        //             <button className="top-menu" id="profileBtn">Profile</button>
-        //             <button className="btnLogout-popup">Logout</button>
-        //         </nav>
-        //     </header>
-        // </div>
         <div>
             <section id="navbar">
                 <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
@@ -29,7 +18,7 @@ export default function Navbar() {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
+                                    <NavLink className="nav-link" aria-current="page" to="/home">Home</NavLink>
                                 </li>
 
                                 <li className="nav-item">
@@ -41,11 +30,9 @@ export default function Navbar() {
                                 </li>
                             </ul>
 
-                            <NavLink to="/user-profile" className="btn btn-outline-light ms-auto px-4 rounded-pill border-3">User Profile</NavLink>
+                            <NavLink to="/user-profile" className="btn btn-outline-light ms-auto px-4 rounded-pill border-3">Profile</NavLink>
 
-                            <NavLink to="/login" className="btn btn-outline-light ms-4 px-4 rounded-pill">Login</NavLink>
-
-                            <NavLink to="/register" className="btn btn-outline-light ms-4 px-4 rounded-pill">Register</NavLink>
+                            <NavLink to="/login" className="btn btn-outline-light ms-4 px-4 rounded-pill">Logout</NavLink>
                         </div>
                     </div>
                 </nav>

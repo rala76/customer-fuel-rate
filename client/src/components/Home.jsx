@@ -1,9 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import NavbarHome from './NavbarHome';
+import Footer from './Footer';
 
 export default function Home() {
     return (
-        <div>
+        <div className="home-background">
+            <NavbarHome/>
+
             <section id="home">
                 <div className="container">
                     <div className="row justify-content-center">
@@ -25,6 +29,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            <Footer/>
         </div>
     )
 }

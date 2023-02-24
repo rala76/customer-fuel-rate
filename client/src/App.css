@@ -9,7 +9,162 @@
     border-color: black;
 }
 
+/* Login & Register */
+/* .login-background {
+    background: url("./assets/login-registerBackground.jpg");
+    height: 100%;
+} */
+
+#login .card-background, 
+#register .card-background,
+#fuelQuoteForm .card-background, 
+#profileManagement .card-background {
+    background: transparent;
+    border-radius: 25px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+#login h2, 
+#register h2,
+#fuelQuoteForm h2, 
+#profileManagement h2 {
+    font-size: 2em;
+    text-align: center;
+    color: white;
+}
+
+#login .login-input-box, 
+#register .register-input-box, 
+#register .register-input-box-optional,
+#fuelQuoteForm .quote-form-input-box, 
+#fuelQuoteForm .quote-form-input-box-readonly, 
+#profileManagement .profileManagement-input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    border-bottom: 2px solid white;
+}
+#login .login-input-box label, 
+#register .register-input-box label,
+#register .register-input-box-optional label,
+#fuelQuoteForm .quote-form-input-box label, 
+#profileManagement .profileManagement-input-box label {
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    left: 5px;
+    font-weight: 500;
+    font-size: 1em;
+    color: white;
+    transform: translateY(-50%);
+    transition: .5s;
+}
+#login .login-input-box input, 
+#register .register-input-box input, 
+#register .register-input-box-optional input, 
+#fuelQuoteForm .quote-form-input-box input, 
+#fuelQuoteForm .quote-form-input-box-readonly, 
+#profileManagement .profileManagement-input-box input {
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    padding: 0 30px 0 5px;
+    color: white;
+}
+#login .login-input-box input:not(:placeholder-shown)~label, 
+#register .register-input-box input:not(:placeholder-shown)~label, 
+#register .register-input-box-optional input:not(:placeholder-shown)~label, 
+#fuelQuoteForm .quote-form-input-box input:not(:placeholder-shown)~label, 
+#profileManagement .profileManagement-input-box input:not(:placeholder-shown)~label {
+    top: -5px;
+}
+#login .login-input-box input:invalid:not(:focus), 
+#register .register-input-box input:invalid:not(:focus), 
+#register .register-input-box-optional input:invalid:not(:focus), 
+#fuelQuoteForm .quote-form-input-box input:invalid:not(:focus), 
+#fuelQuoteForm .quote-form-input-box-readonly input:invalid:not(:focus), 
+#profileManagement .profileManagement-input-box input:invalid:not(:focus) {
+    color: red;
+}
+#login .login-input-box i, 
+#register .register-input-box i, 
+#register .register-input-box-optional i {
+    position: absolute;
+    line-height: 57px;
+    right: 8px;
+    font-size: 1.1em;
+}
+
+#login .rememberMe-forgotPass,
+#register .agreeTermsCond {
+    font-size: .9em;
+    margin: -16px 0 16px;
+    color: white;
+    font-weight: 450;
+    display: flex;
+    justify-content: space-between;
+}
+#login .rememberMe-forgotPass label input, 
+#register .agreeTermsCond label input {
+    accent-color: white;
+    margin-right: 3px;
+}
+#login .rememberMe-forgotPass .forgotPass {
+    color: white;
+    text-decoration: none;
+}
+#login .rememberMe-forgotPass .forgotPass:hover {
+    text-decoration: underline;
+}
+
+#login .btnSubmitLogin, 
+#register .btnSubmitRegister, 
+#register .btnSubmitFinalRegister, 
+#fuelQuoteForm .btnSubmitQuoteForm, 
+#profileManagement .btnSubmitEditProfile {
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+    font-weight: 500;
+    background: #10142c;;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#login .loginToRegister, 
+#register .registerToLogin {
+    font-size: .9em;
+    font-weight: 600;
+    margin: 25px 0 10px;
+    color: white;
+    text-align: center;
+}
+#login .loginToRegister p a:hover, 
+#register .registerToLogin p a:hover {
+    text-decoration: underline;
+}
+#login .loginToRegister p a, 
+#register .registerToLogin p a {
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
 /* Home */
+/* .home-background {
+    background: url("./assets/homeBackground.jpg");
+    height: 100%;
+} */
+
 #home .card-background {
     background: linear-gradient(rgb(0, 4, 226), rgb(15, 144, 250), rgb(255, 255, 255));
     border-radius: 20px;
@@ -39,3 +194,81 @@
 #home .btn-outline-light:hover {
     background: blue;
 }
+
+/* Fuel Quote Form */
+#fuelQuoteForm .quote-form ::placeholder {
+    color: rgb(255, 255, 255);
+    font-size: 1.4em;
+    transform: translateY(-10%);
+    font-weight: bold;
+
+}
+
+#fuelQuoteForm .quote-form h2 {
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 40px;
+    justify-content: center;
+}
+
+#fuelQuoteForm [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+#fuelQuoteForm [type="date"] {
+    background: rgb(255, 255, 255) url('https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png') 95% 55% no-repeat;
+}
+
+#fuelQuoteForm [type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+#fuelQuoteForm .pricePerGal-label, 
+#fuelQuoteForm .totalAmount-label {
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+#fuelQuoteForm .pricePerGal-box, 
+#fuelQuoteForm .totalAmount-box {
+    padding-bottom: 30px;
+}
+
+#fuelQuoteForm .pricePerGal-box .pricePerGal-inputbox, 
+#fuelQuoteForm .totalAmount-box .totalAmount-inputbox {
+    overflow: scroll;
+}
+
+/* Fuel Quote History */
+#fuelQuoteHistory .history-head {
+    height: 70px;
+    border: none;
+    outline: none;
+    text-align:center;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient( red, orange);
+}
+
+#fuelQuoteHistory .quote-history th {
+    padding-left: 3vw;
+    padding-right: 3vw;
+    font-size: 1.4vw;
+    
+}
+#fuelQuoteHistory .quote-history table {
+    width: 100%;
+    border-collapse:collapse;
+}
+
+#fuelQuoteHistory .quote-history .table-group-divider th {
+    border-bottom: 1px solid black;
+    padding-top: 3vh;
+}
+#fuelQuoteHistory .quote-history .table-group-divider tr{
+    border-bottom: 1px solid black;
+    background-color: white;
+}
+
+/* Profile Management */
+
