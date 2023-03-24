@@ -270,5 +270,8 @@
     background-color: white;
 }
 
-/* Profile Management */
-
+/* Forms */
+.required:after {
+    content:" *";
+    color: red;
+}

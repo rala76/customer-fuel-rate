@@ -1,12 +1,11 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import NavbarLogin from './NavbarLogin';
-import Footer from './Footer';
+import { Link } from 'react-router-dom';
+import PublicNavbar from '../../components/PublicNavbar';
+import PublicFooter from '../../components/PublicFooter';
 
-export default function Login() {
-    return (
+const Login = () => {
+    const content = (
         <div className="login-background">
-            <NavbarLogin/>
+            <PublicNavbar/>
 
             <section id="login">
                 <div className="container">
@@ -32,13 +31,13 @@ export default function Login() {
                                         <div className="rememberMe-forgotPass">
                                             <label><input type="checkbox"/> Remember me</label>
                                             
-                                            <NavLink to="/login" className="forgotPass">Forgot Password?</NavLink>
+                                            <Link to="/login" className="forgotPass">Forgot Password?</Link>
                                         </div>
 
                                         <button type="submit" className="btnSubmitLogin">Login</button>
                                         
                                         <div className="loginToRegister">
-                                            <p>Don't have an account? <NavLink to="/register">Register</NavLink></p>
+                                            <p>Don't have an account? <Link to="/register">Register</Link></p>
                                         </div>
                                     </form>
                                 </div>
@@ -48,7 +47,10 @@ export default function Login() {
                 </div>
             </section>
 
-            <Footer/>
+            <PublicFooter/>
         </div>
     )
+    return content
 }
+
+export default Login

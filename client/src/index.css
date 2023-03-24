@@ -6,11 +6,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   font-family: 'Poppins', sans-serif;
-  background: url("../src/assets/homeBackground.jpg");
+  background: url("../src/img/homeBackground.jpg");
   background-size: cover;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.errmsg {
+  display: inline-block;
+  background-color: var(--TABLE-BGCOLOR);
+  color: var(--ERROR);
+  padding: 0.25em;
+  margin-bottom: 0.5em;
 }

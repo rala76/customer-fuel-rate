@@ -1,29 +1,43 @@
 import './App.css';
-import { Route, Routes, Navigate } from 'react-router-dom';
-import Login from './components/Login';
-import Register from './components/Register';
-import RegisterComplete from './components/RegisterComplete';
+import { Routes, Route } from 'react-router-dom';
+import PublicLayout from './components/PublicLayout';
+import Login from './features/auth/Login';
+import Register from './features/auth/Register';
+import HomeLayout from './components/HomeLayout';
+import Public from './components/Public';
 import Home from './components/Home';
-import FuelQuoteForm from './components/FuelQuoteForm';
-import FuelQuoteHistory from './components/FuelQuoteHistory';
-import UserProfile from './components/UserProfile';
+import FuelQuoteHistory from './features/fuelQuote/FuelQuoteHistory';
+import UserProfile from './features/users/UserProfile';
+import Prefetch from './features/auth/Prefetch';
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route exact path="/" element={<Navigate to="/login" replace />} />
+    <Routes>
+      <Route path="/" element={<PublicLayout />}>
+        <Route index element={<Public />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
 
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/register" element={<Register />} />
-        <Route exact path="/register-complete" element={<RegisterComplete />} />
+        <Route element={<Prefetch />}>
+          <Route path="home" element={<HomeLayout />}>
+            <Route index element={<Home />} />
 
-        <Route exact path="/home" element={<Home />} />
-        <Route exact path="/fuel-quote-form" element={<FuelQuoteForm />} />
-        <Route exact path="/fuel-quote-history" element={<FuelQuoteHistory />} />
-        <Route exact path="/user-profile" element={<UserProfile />} />
-      </Routes>
-    </>
+            <Route path="profile/user/:id" element={<UserProfile />} />
+
+            <Route path="fuelQuotes" element={<FuelQuoteHistory />} />
+
+            {/* <Route path="profile">
+              <Route index element={<UserProfile />} />
+            </Route>
+            <Route path="fuelQuotes">
+              <Route index element={<FuelQuoteHistory />} />
+            </Route> */}
+
+          </Route> {/* End Home */}
+        </Route>
+
+      </Route> {/* End Public */}
+    </Routes>
   );
 }
 

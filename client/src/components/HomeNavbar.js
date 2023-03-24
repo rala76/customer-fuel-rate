@@ -1,10 +1,9 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import 'bootstrap/js/src/collapse.js';
-import logo from '../assets/group-2-logo.png';
+import { Link } from 'react-router-dom';
+import 'bootstrap/js/src/collapse';
+import logo from '../img/group-2-logo.png';
 
-export default function NavbarHome() {
-    return (
+const HomeNavbar = () => {
+    const content = (
         <div>
             <section id="navbar">
                 <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
@@ -18,25 +17,28 @@ export default function NavbarHome() {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" aria-current="page" to="/home">Home</NavLink>
+                                    <Link className="nav-link" aria-current="page" to="/home">Home</Link>
                                 </li>
 
                                 <li className="nav-item">
-                                    <NavLink className="nav-link ms-3" to="/fuel-quote-form">Get Quote</NavLink>
+                                    <Link className="nav-link ms-3" to="/home/fuel-quote-form">Get Quote</Link>
                                 </li>
 
                                 <li className="nav-item">
-                                    <NavLink className="nav-link ms-3" to="/fuel-quote-history">Quote History</NavLink>
+                                    <Link className="nav-link ms-3" to="/home/fuelQuotes">Quote History</Link>
                                 </li>
                             </ul>
+                            
+                            <Link to="/home/profile" className="btn btn-outline-light ms-auto px-4 rounded-pill border-3">Profile</Link>
 
-                            <NavLink to="/user-profile" className="btn btn-outline-light ms-auto px-4 rounded-pill border-3">Profile</NavLink>
-
-                            <NavLink to="/login" className="btn btn-outline-light ms-4 px-4 rounded-pill">Logout</NavLink>
+                            <Link to="/logout" className="btn btn-outline-light ms-4 px-4 rounded-pill">Logout</Link>
                         </div>
                     </div>
                 </nav>
             </section>
         </div>
     )
+    return content
 }
+
+export default HomeNavbar
