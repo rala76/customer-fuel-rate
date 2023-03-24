@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 const fuelQuoteSchema = new mongoose.Schema({
+    
     user: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -27,6 +28,7 @@ const fuelQuoteSchema = new mongoose.Schema({
         type: Number,
         required: false
     }
+    //Do we need timestamps for AutoIncrement to work?
 })
 
 // Doesn't seem to work?? Might just ingore or remove later

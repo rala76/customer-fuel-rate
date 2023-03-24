@@ -1,3 +1,4 @@
+//starter
 require('dotenv').config() // Allow use of environment variables
 const express = require('express')
 const app = express()
@@ -54,6 +55,7 @@ app.all('*', (req, res) => {
 
 // Log errors
 app.use(errorHandler)
+
 
 // Connect to mongoDB using Mongoose
 mongoose.connection.once('open', () => {

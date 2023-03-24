@@ -17,7 +17,7 @@ const getAllUsers = asyncHandler(async (req, res) => {
     res.json(users)
 })
 
-// @desc Create new user
+// @desc Create a new user
 // @route POST /users
 // @access Private
 const createNewUser = asyncHandler(async (req, res) => {
@@ -55,7 +55,7 @@ const createNewUser = asyncHandler(async (req, res) => {
 
     if (user) { // Created
         res.status(201).json({ message: `New user ${username} created` })
-    } else { // Not Created
+    } else { // Not Created/Saved
         res.status(400).json({ message: 'Invalid user data received' })
     }
 })
@@ -90,7 +90,7 @@ const updateUser = asyncHandler(async (req, res) => {
     if (username) {
         const duplicate = await User.findOne({ username }).lean().exec()
 
-        // Allow updates to the original user
+        // Allow updates to the original user that already exists
         if (duplicate && duplicate?._id.toString() !== id) {
             return res.status(409).json({ message: 'Duplicate username' })
         }
@@ -151,8 +151,5 @@ const deleteUser = asyncHandler(async (req, res) => {
 })
 
 module.exports = {
-    getAllUsers,
-    createNewUser,
-    updateUser,
-    deleteUser
+    getAllUsers, createNewUser, updateUser, deleteUser
 }
