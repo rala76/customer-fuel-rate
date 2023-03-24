@@ -1,8 +1,42 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import 'bootstrap/js/src/collapse';
 import logo from '../img/group-2-logo.png';
 
+import { useSendLogoutMutation } from '../features/auth/authApiSlice';
+
+// const HOME_REGEX = /^\/home(\/)?$/
+// const FUELQUOTES_REGEX = /^\/home\/fuelQuotes(\/)?$/
+// const PROFILE_REGEX = /^\/home\/profile(\/)?$/
+
 const HomeNavbar = () => {
+    const navigate = useNavigate()
+    // const { pathname } = useLocation()
+
+    const [sendLogout, {
+        isLoading,
+        isSuccess,
+        isError,
+        error
+    }] = useSendLogoutMutation()
+
+    useEffect(() => {
+        if (isSuccess) {
+            navigate('/')
+        }
+    })
+
+    const onLogoutClicked = () => sendLogout()
+
+    if (isLoading) return <p className="h3 text-white text-center">Logging Out...</p>
+
+    if (isError) return <p className="h3 text-white text-center">Error: {error.message}</p>
+
+    // let homeClass = null
+    // if (!HOME_REGEX.test(pathname) && !FUELQUOTES_REGEX.test(pathname) && !PROFILE_REGEX.test(pathname)) {
+    //     homeClass = "dash-header__container--small"
+    // }
+
     const content = (
         <div>
             <section id="navbar">
@@ -31,7 +65,8 @@ const HomeNavbar = () => {
                             
                             <Link to="/home/profile" className="btn btn-outline-light ms-auto px-4 rounded-pill border-3">Profile</Link>
 
-                            <Link to="/logout" className="btn btn-outline-light ms-4 px-4 rounded-pill">Logout</Link>
+                            {/* <Link to="/logout" className="btn btn-outline-light ms-4 px-4 rounded-pill">Logout</Link> */}
+                            <button className="btn btn-outline-light ms-4 px-4 rounded-pill" title="Logout" onClick={onLogoutClicked}>Logout</button>
                         </div>
                     </div>
                 </nav>

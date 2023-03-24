@@ -9,6 +9,7 @@ import Home from './components/Home';
 import FuelQuoteHistory from './features/fuelQuote/FuelQuoteHistory';
 import UserProfile from './features/users/UserProfile';
 import Prefetch from './features/auth/Prefetch';
+import PersistLogin from './features/auth/PersistLogin';
 
 function App() {
   return (
@@ -18,22 +19,25 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
 
-        <Route element={<Prefetch />}>
-          <Route path="home" element={<HomeLayout />}>
-            <Route index element={<Home />} />
+        <Route element={<PersistLogin />}>
+          <Route element={<Prefetch />}>
+            <Route path="home" element={<HomeLayout />}>
+              <Route index element={<Home />} />
 
-            <Route path="profile/user/:id" element={<UserProfile />} />
+              {/* <Route path="profile/:id" element={<UserProfile />} /> */}
+              <Route path="profile" element={<UserProfile />} />
 
-            <Route path="fuelQuotes" element={<FuelQuoteHistory />} />
+              <Route path="fuelQuotes" element={<FuelQuoteHistory />} />
 
-            {/* <Route path="profile">
-              <Route index element={<UserProfile />} />
-            </Route>
-            <Route path="fuelQuotes">
-              <Route index element={<FuelQuoteHistory />} />
-            </Route> */}
+              {/* <Route path="profile">
+                <Route index element={<UserProfile />} />
+              </Route>
+              <Route path="fuelQuotes">
+                <Route index element={<FuelQuoteHistory />} />
+              </Route> */}
 
-          </Route> {/* End Home */}
+            </Route> {/* End Home */}
+          </Route>
         </Route>
 
       </Route> {/* End Public */}

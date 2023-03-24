@@ -8,7 +8,7 @@ const FuelQuoteHistory = () => {
         isSuccess, 
         isError, 
         error 
-    } = useGetFuelQuotesQuery(undefined, {
+    } = useGetFuelQuotesQuery('fuelQuoteHistory', {
         pollingInterval: 60000, // 60 sec
         refetchOnFocus: true,
         refetchOnMountOrArgChange: true
@@ -16,7 +16,7 @@ const FuelQuoteHistory = () => {
 
     let content
 
-    if (isLoading) content = <p>Loading...</p>
+    if (isLoading) content = <p className="h3 text-white text-center">Loading...</p>
 
     if (isError) {
         content = <p className="h3 text-white text-center">{error?.data?.message}</p>

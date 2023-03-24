@@ -68,7 +68,7 @@ const Register = () => {
     const onStateChanged = e => setState(e.target.value)
     const onZipCodeChanged = e => setZipCode(e.target.value)
 
-    const onRegisterBtnClicked = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         const userObject = {
@@ -97,7 +97,7 @@ const Register = () => {
                                 <div className="card-body text-white">
                                     <h2>Registration</h2>
 
-                                    <form onSubmit={onRegisterBtnClicked} className="needs-validation" noValidate>
+                                    <form onSubmit={handleSubmit} className="needs-validation" noValidate>
                                         <div className="register-input-box has-validation">
                                             <i className="fa fa-envelope"></i>
                                             <input type="text" id="userLogin" minLength="3" maxLength="20" placeholder=" " value={username} onChange={onUsernameChanged} required />
@@ -137,7 +137,7 @@ const Register = () => {
 
                                         <div className="row">
                                             <div className="col has-validation">
-                                                <label for="states" className="required">State:</label>
+                                                <label htmlFor="states" className="required">State:</label>
                                                 <select id="states" name="states" className="form-select form-select-sm" style={{ 'width': '6rem' }} value={state} onChange={onStateChanged} required>
                                                     <option value="" selected disabled hidden></option>
                                                     <option value="TX">TX</option>
@@ -149,7 +149,7 @@ const Register = () => {
                                             </div>
 
                                             <div className="col has-validation">
-                                                <label for="zipCode" className="zipcode required">Zip code:</label>
+                                                <label htmlFor="zipCode" className="zipcode required">Zip code:</label>
                                                 <input id="zipCode" className="form-control form-control-sm" style={{ 'width': '10rem' }} type="text" minLength="5" maxLength="9" value={zipCode} onChange={onZipCodeChanged} required />
                                                 <div className="invalid-feedback">Zip code required [5-9 characters]</div>
                                             </div>
