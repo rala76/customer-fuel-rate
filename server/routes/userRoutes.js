@@ -11,9 +11,9 @@ const verifyJWT = require('../middleware/verifyJWT')
 
 // Handles any 'get, post, patch, delete' request that comes to our REST API at '/users' (Directed to Controllers)
 router.route('/')
-    .get(verifyJWT, usersController.getAllUsers)
+    .get(usersController.getAllUsers)
     .post(usersController.createNewUser)
-    .patch(verifyJWT, usersController.updateUser)
+    .patch(usersController.updateUser)
     .delete(verifyJWT, usersController.deleteUser)
 
 module.exports = router

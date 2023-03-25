@@ -5,11 +5,15 @@ import logo from '../img/group-2-logo.png';
 
 import { useSendLogoutMutation } from '../features/auth/authApiSlice';
 
+import useAuth from '../hooks/useAuth'
+
 // const HOME_REGEX = /^\/home(\/)?$/
 // const FUELQUOTES_REGEX = /^\/home\/fuelQuotes(\/)?$/
 // const PROFILE_REGEX = /^\/home\/profile(\/)?$/
 
 const HomeNavbar = () => {
+    const { id } = useAuth()
+
     const navigate = useNavigate()
     // const { pathname } = useLocation()
 
@@ -27,8 +31,10 @@ const HomeNavbar = () => {
     })
 
     const onLogoutClicked = () => sendLogout()
+    const onProfileClicked = () => navigate(`/home/profile/${id}`)
+    // const onFuelQuotesHistoryClicked = () => navigate(`/home/fuelQuotesHistory/${id}`)
 
-    if (isLoading) return <p className="h3 text-white text-center">Logging Out...</p>
+    if (isLoading) return <p className="h3 text-white text-center">Loading...</p>
 
     if (isError) return <p className="h3 text-white text-center">Error: {error.message}</p>
 
@@ -55,15 +61,16 @@ const HomeNavbar = () => {
                                 </li>
 
                                 <li className="nav-item">
-                                    <Link className="nav-link ms-3" to="/home/fuel-quote-form">Get Quote</Link>
+                                    <Link className="nav-link ms-3" to={`/home/fuelQuoteForm/${id}`}>Get Quote</Link>
                                 </li>
 
                                 <li className="nav-item">
-                                    <Link className="nav-link ms-3" to="/home/fuelQuotes">Quote History</Link>
+                                    <Link className="nav-link ms-3" to={`/home/fuelQuotesHistory/${id}`}>Quote History</Link>
                                 </li>
                             </ul>
                             
-                            <Link to="/home/profile" className="btn btn-outline-light ms-auto px-4 rounded-pill border-3">Profile</Link>
+                            {/* <Link to="/home/profile" className="btn btn-outline-light ms-auto px-4 rounded-pill border-3">Profile</Link> */}
+                            <button className="btn btn-outline-light ms-4 px-4 rounded-pill" title="Profile" onClick={onProfileClicked}>Profile</button>
 
                             {/* <Link to="/logout" className="btn btn-outline-light ms-4 px-4 rounded-pill">Logout</Link> */}
                             <button className="btn btn-outline-light ms-4 px-4 rounded-pill" title="Logout" onClick={onLogoutClicked}>Logout</button>

@@ -1,10 +1,14 @@
 import { useSelector } from 'react-redux';
 import { selectFuelQuoteById } from './fuelQuotesApiSlice';
 
+import useAuth from '../../hooks/useAuth';
+
 const FuelQuote = ({ fuelQuoteId }) => {
+    const { id } = useAuth()
+
     const fuelQuote = useSelector(state => selectFuelQuoteById(state, fuelQuoteId))
 
-    if (fuelQuote) {
+    if (fuelQuote && fuelQuote.user === id) {
         return (
             <tr>
                 <td>{fuelQuote._id}</td>

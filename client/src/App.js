@@ -8,41 +8,48 @@ import Public from './components/Public';
 import Home from './components/Home';
 import FuelQuoteHistory from './features/fuelQuote/FuelQuoteHistory';
 import UserProfile from './features/users/UserProfile';
+import EditUser from './features/users/EditUser';
 import Prefetch from './features/auth/Prefetch';
 import PersistLogin from './features/auth/PersistLogin';
+import FuelQuoteForm from './features/fuelQuote/FuelQuoteForm';
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<PublicLayout />}>
-        <Route index element={<Public />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
+    return (
+        <Routes>
+            <Route path="/" element={<PublicLayout />}>
+                <Route index element={<Public />} />
+                <Route path="login" element={<Login />} />
+                <Route path="register" element={<Register />} />
 
-        <Route element={<PersistLogin />}>
-          <Route element={<Prefetch />}>
-            <Route path="home" element={<HomeLayout />}>
-              <Route index element={<Home />} />
+                <Route element={<PersistLogin />}>
+                    <Route element={<Prefetch />}>
+                        <Route path="home" element={<HomeLayout />}>
+                            <Route index element={<Home />} />
 
-              {/* <Route path="profile/:id" element={<UserProfile />} /> */}
-              <Route path="profile" element={<UserProfile />} />
+                            <Route path="profile">
+                                {/* <Route index element={<SomePage />} /> */}
+                                <Route path=":id" element={<EditUser />} />
+                            </Route>
 
-              <Route path="fuelQuotes" element={<FuelQuoteHistory />} />
+                            <Route path="fuelQuotesHistory">
+                                <Route path=":id" element={<FuelQuoteHistory />} />
+                            </Route>
 
-              {/* <Route path="profile">
-                <Route index element={<UserProfile />} />
-              </Route>
-              <Route path="fuelQuotes">
-                <Route index element={<FuelQuoteHistory />} />
-              </Route> */}
+                            <Route path="fuelQuoteForm">
+                                <Route path=":id" element={<FuelQuoteForm />} />
+                            </Route>
 
-            </Route> {/* End Home */}
-          </Route>
-        </Route>
+                            {/* <Route path="profile/:id" element={<UserProfile />} /> */}
 
-      </Route> {/* End Public */}
-    </Routes>
-  );
+                            {/* <Route path="fuelQuotesHistory" element={<FuelQuoteHistory />} /> */}
+
+                        </Route> {/* End Home */}
+                    </Route>
+                </Route>
+
+            </Route> {/* End Public */}
+        </Routes>
+    );
 }
 
 export default App;

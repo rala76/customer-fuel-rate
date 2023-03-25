@@ -150,7 +150,7 @@ const Register = () => {
 
                                             <div className="col has-validation">
                                                 <label htmlFor="zipCode" className="zipcode required">Zip code:</label>
-                                                <input id="zipCode" className="form-control form-control-sm" style={{ 'width': '10rem' }} type="text" minLength="5" maxLength="9" value={zipCode} onChange={onZipCodeChanged} required />
+                                                <input type="text" id="zipCode" className="form-control form-control-sm" style={{ 'width': '10rem' }} minLength="5" maxLength="9" value={zipCode} onChange={onZipCodeChanged} required />
                                                 <div className="invalid-feedback">Zip code required [5-9 characters]</div>
                                             </div>
                                         </div>

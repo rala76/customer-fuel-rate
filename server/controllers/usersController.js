@@ -78,13 +78,13 @@ const updateUser = asyncHandler(async (req, res) => {
         return res.status(400).json({ message: 'User not found' })
     }
 
-    // // Check for duplicate
-    // const duplicate = await User.findOne({ username }).lean().exec()
+    // Check for duplicate
+    const duplicate = await User.findOne({ username }).lean().exec()
 
-    // // Allow updates to the original user
-    // if (duplicate && duplicate?._id.toString() !== id) {
-    //     return res.status(409).json({ message: 'Duplicate username' })
-    // }
+    // Allow updates to the original user
+    if (duplicate && duplicate?._id.toString() !== id) {
+        return res.status(409).json({ message: 'Duplicate username' })
+    }
 
     // Check for duplicate if username given
     if (username) {
