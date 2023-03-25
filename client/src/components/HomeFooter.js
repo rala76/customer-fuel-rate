@@ -1,5 +1,8 @@
+import useAuth from '../hooks/useAuth'
 
 const HomeFooter = () => {
+    const { username } = useAuth()
+
     const content = (
         <div className="footer-login">
             <footer className="footer text-white">
@@ -7,7 +10,7 @@ const HomeFooter = () => {
                     <footer className="py-5">
                         <div className="d-flex justify-content-between pt-4 mt-4 border-top">
                             <div className="col-3">
-                                <h4>Current User:</h4>
+                                <h4>{`Current User: ${username}`}</h4>
                             </div>
                         </div>
 
