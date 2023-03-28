@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const AutoIncrement = require('mongoose-sequence')(mongoose)
+// const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 const fuelQuoteSchema = new mongoose.Schema({
     user: {
@@ -30,10 +30,10 @@ const fuelQuoteSchema = new mongoose.Schema({
 })
 
 // Doesn't seem to work?? Might just ingore or remove later
-fuelQuoteSchema.plugin(AutoIncrement, {
-    inc_field: 'quoteId',
-    id: 'quoteIdNums',
-    start_seq: 500
-})
+// fuelQuoteSchema.plugin(AutoIncrement, {
+//     inc_field: 'quoteId',
+//     id: 'quoteIdNums',
+//     start_seq: 500
+// })
 
 module.exports = mongoose.model('FuelQuote', fuelQuoteSchema)

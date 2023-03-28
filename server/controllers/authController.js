@@ -31,7 +31,7 @@ const login = asyncHandler(async (req, res) => {
                 "id": foundUser._id,
                 "username": foundUser.username,
                 "name": foundUser.name,
-                "address1": foundUser.name,
+                "address1": foundUser.address1,
                 "city": foundUser.city,
                 "state": foundUser.state,
                 "zipCode": foundUser.zipCode
@@ -91,7 +91,7 @@ const refresh = (req, res) => {
                         "id": foundUser._id,
                         "username": foundUser.username,
                         "name": foundUser.name,
-                        "address1": foundUser.name,
+                        "address1": foundUser.address1,
                         "city": foundUser.city,
                         "state": foundUser.state,
                         "zipCode": foundUser.zipCode

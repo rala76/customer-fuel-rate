@@ -55,7 +55,7 @@ const PersistLogin = () => {
         console.log('error')
         content = (
             <p className="h5 text-white text-center">
-                {error.data?.message}
+                {error?.data?.message}
                 <Link to="/login" className="ms-4">Please login again</Link>
             </p>
         )

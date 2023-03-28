@@ -17,10 +17,12 @@ function App() {
     return (
         <Routes>
             <Route path="/" element={<PublicLayout />}>
+                {/* Public Routes */}
                 <Route index element={<Public />} />
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<Register />} />
 
+                {/* Protected Routes */}
                 <Route element={<PersistLogin />}>
                     <Route element={<Prefetch />}>
                         <Route path="home" element={<HomeLayout />}>
@@ -45,7 +47,7 @@ function App() {
 
                         </Route> {/* End Home */}
                     </Route>
-                </Route>
+                </Route> {/* End of Protected Routes */}
 
             </Route> {/* End Public */}
         </Routes>

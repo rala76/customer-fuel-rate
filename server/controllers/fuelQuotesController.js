@@ -30,19 +30,20 @@ const getAllFuelQuotes = asyncHandler(async (req, res) => {
 // @route POST /fuelQuotes
 // @access Private
 const createNewFuelQuote = asyncHandler(async (req, res) => {
-    const { user, deliveryDate, pricePerGallon, gallonsRequested, totalCost } = req.body
+    const { user, deliveryAddress, deliveryDate, pricePerGallon, gallonsRequested, totalCost } = req.body
 
     // Confirm data
-    if (!user || !deliveryDate || !pricePerGallon || !gallonsRequested || !totalCost) {
+    if (!user || !deliveryAddress || !deliveryDate || !pricePerGallon || !gallonsRequested || !totalCost) {
         return res.status(400).json({ message: 'Missing field(s)' })
     }
 
-    const userOfFuelQuote = await User.findById(user).lean().exec()
+    // const userOfFuelQuote = await User.findById(user).lean().exec()
 
     // Define Fuel Quote Object
     const fuelQuoteObject = {
-        "user": userOfFuelQuote._id,
-        "deliveryAddress": userOfFuelQuote.address1,
+        // "user": userOfFuelQuote._id,
+        "user": user,
+        "deliveryAddress": deliveryAddress,
         "deliveryDate": deliveryDate,
         "pricePerGallon": pricePerGallon,
         "gallonsRequested": gallonsRequested,

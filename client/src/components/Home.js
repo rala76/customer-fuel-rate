@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-// import HomeNavbar from './HomeNavbar';
-// import HomeFooter from './HomeFooter';
+import useAuth from '../hooks/useAuth';
 
 const Home = () => {
+    const { id } = useAuth()
+
     const content = (
         <div className="home-background">
-            {/* <HomeNavbar/> */}
             <section id="home">
                 <div className="container">
                     <div className="row justify-content-center">
@@ -19,7 +19,7 @@ const Home = () => {
                                     </h3>
 
                                     <div className="buttons d-flex justify-content-center">
-                                        <Link to="/fuel-quote-form" className="btn btn-outline-light rounded-pill px-5 py-2">Get Quote</Link>
+                                        <Link className="btn btn-outline-light rounded-pill px-5 py-2" to={`/home/fuelQuoteForm/${id}`}>Get Quote</Link>
                                     </div>
                                 </div>
                             </div>
@@ -27,7 +27,6 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            {/* <HomeFooter/> */}
         </div>
     )
     return content

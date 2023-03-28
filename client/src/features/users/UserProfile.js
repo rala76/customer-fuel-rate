@@ -97,16 +97,16 @@ const UserProfile = ({ user }) => {
                                             <label htmlFor="states">State:</label>
                                             <select id="states" name="states" className="form-select form-select-sm" style={{'width': '6rem'}} value={state} onChange={onStateChanged} required>
                                                 {/* <option value="" selected disabled hidden></option> */}
-                                                <option value="Texas">TX</option>
-                                                <option value="California">CA</option>
-                                                <option value="Florida">FL</option>
-                                                <option value="Alaska">AL</option>
+                                                <option value="TX">TX</option>
+                                                <option value="CA">CA</option>
+                                                <option value="FL">FL</option>
+                                                <option value="AL">AL</option>
                                             </select>
                                             </div>
 
                                             <div className="col">
                                             <label htmlFor="zipCode" className="zipcode">Zip code:</label>
-                                            <input type="text" id="zipCode" className="form-control form-control-sm" minlength="5" maxlength="9" value={zipCode} onChange={onZipCodeChanged} required/>
+                                            <input type="text" id="zipCode" className="form-control form-control-sm" minlength="5" maxLength="9" value={zipCode} onChange={onZipCodeChanged} required/>
                                             </div>
                                         </div>
 

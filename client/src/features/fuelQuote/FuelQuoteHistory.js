@@ -1,8 +1,10 @@
 import { useGetFuelQuotesQuery } from './fuelQuotesApiSlice';
 import FuelQuote from './FuelQuote';
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
+import refreshIcon from '../../img/refresh-icon.png';
 
 const FuelQuoteHistory = () => {
+
     const { id } = useParams()
 
     const {
@@ -28,14 +30,20 @@ const FuelQuoteHistory = () => {
     if (isSuccess) {
         const { ids } = fuelQuotes
 
-        const tableContent = ids?.length
-            ? ids.map(fuelQuoteId => <FuelQuote key={fuelQuoteId} fuelQuoteId={fuelQuoteId} />)
-            : null
+        // const tableContent = ids?.length
+        //     ? ids.map(fuelQuoteId => <FuelQuote key={fuelQuoteId} fuelQuoteId={fuelQuoteId} />)
+        //     : null
+        const tableContent = ids?.length && ids.map(fuelQuoteId => <FuelQuote key={fuelQuoteId} fuelQuoteId={fuelQuoteId} />)
         
         content = (
             <div className="fuel-quote-history-background">
                 <section id="fuelQuoteHistory">
                     <div className="container my-5">
+                        <button className="btn bg-transparent ms-5 text-white" onClick={() => window.location.reload()}>
+                            <h4 className="mb-0">Refresh List<img src={refreshIcon} className="ms-1 mb-1" width={30} alt="refresh"/></h4>
+                        </button>
+                        
+                        
                         <div className="quote-history">
                             <table className="table table-striped rounded rounded-5 overflow-hidden">
                                 <thead className="history-head">
