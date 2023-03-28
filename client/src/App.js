@@ -12,8 +12,11 @@ import EditUser from './features/users/EditUser';
 import Prefetch from './features/auth/Prefetch';
 import PersistLogin from './features/auth/PersistLogin';
 import FuelQuoteForm from './features/fuelQuote/FuelQuoteForm';
+import useTitle from './hooks/useTitle';
 
 function App() {
+    useTitle('Customer Fuel Rate')
+
     return (
         <Routes>
             <Route path="/" element={<PublicLayout />}>

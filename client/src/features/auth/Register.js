@@ -172,6 +172,8 @@ const Register = () => {
                                             <p>Already have an account? <Link to="/login">Login</Link></p>
                                         </div>
                                     </form>
+
+                                    <p className="h5 text-danger text-center" aria-live="assertive">{error?.data?.message}</p>
                                 </div>
                             </div>
                         </div>

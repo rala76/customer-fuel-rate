@@ -1,14 +1,12 @@
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-
 import { useDispatch } from 'react-redux';
 import { setCredentials } from './authSlice';
 import { useLoginMutation } from './authApiSlice';
-
 import usePersist from '../../hooks/usePersist';
-
 import PublicNavbar from '../../components/PublicNavbar';
 import PublicFooter from '../../components/PublicFooter';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const Login = () => {
     // const userRef = useRef()
@@ -80,7 +78,12 @@ const Login = () => {
 
     // const errClass = errMsg ? "errMsg" : "offscreen"
 
-    if (isLoading) return <p className="h3 text-white text-center">Loading...</p>
+    // if (isLoading) return <p className="h3 text-white text-center">Loading...</p>
+    if (isLoading) return (
+        <div className="h3 text-white text-center mt-5">
+            <p style={{'display': 'inline'}}>Loading <PulseLoader color={"#FFF"} size={"8"} /></p>
+        </div>
+    )
 
     const content = (
         <div className="login-background">

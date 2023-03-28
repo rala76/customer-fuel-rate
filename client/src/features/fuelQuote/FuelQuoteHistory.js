@@ -1,11 +1,10 @@
 import { useGetFuelQuotesQuery } from './fuelQuotesApiSlice';
 import FuelQuote from './FuelQuote';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import refreshIcon from '../../img/refresh-icon.png';
 
 const FuelQuoteHistory = () => {
-
-    const { id } = useParams()
+    // const { id } = useParams()
 
     const {
         data: fuelQuotes, 

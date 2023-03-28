@@ -2,10 +2,9 @@ import { useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import 'bootstrap/js/src/collapse';
 import logo from '../img/group-2-logo.png';
-
 import { useSendLogoutMutation } from '../features/auth/authApiSlice';
-
 import useAuth from '../hooks/useAuth'
+import PulseLoader from 'react-spinners/PulseLoader';
 
 // const HOME_REGEX = /^\/home(\/)?$/
 // const FUELQUOTES_REGEX = /^\/home\/fuelQuotes(\/)?$/
@@ -34,7 +33,12 @@ const HomeNavbar = () => {
     const onProfileClicked = () => navigate(`/home/profile/${id}`)
     // const onFuelQuotesHistoryClicked = () => navigate(`/home/fuelQuotesHistory/${id}`)
 
-    if (isLoading) return <p className="h3 text-white text-center">Loading...</p>
+    // if (isLoading) return <p className="h3 text-white text-center">Loading...</p>
+    if (isLoading) return (
+        <div className="h3 text-white text-center mt-5">
+            <p style={{'display': 'inline'}}>Loading <PulseLoader color={"#FFF"} size={"8"} /></p>
+        </div>
+    )
 
     if (isError) return <p className="h3 text-white text-center">Error: {error.message}</p>
 

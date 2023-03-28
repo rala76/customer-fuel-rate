@@ -8,10 +8,12 @@ const initialState = fuelQuotesAdapter.getInitialState()
 export const fuelQuotesApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getFuelQuotes: builder.query({
-            query: () => '/fuelQuotes',
-            validateStatus: (response, result) => {
-                return response.status === 200 && !result.isError
-            },
+            query: () => ({
+                url: '/fuelQuotes',
+                validateStatus: (response, result) => {
+                    return response.status === 200 && !result.isError
+                },
+            }),
             transformResponse: responseData => {
                 const loadedFuelQuotes = responseData.map(fuelQuote => {
                     fuelQuote.id = fuelQuote._id

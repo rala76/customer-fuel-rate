@@ -1,12 +1,19 @@
-import { useSelector } from 'react-redux';
-import { selectFuelQuoteById } from './fuelQuotesApiSlice';
+// import { useSelector } from 'react-redux';
+// import { selectFuelQuoteById } from './fuelQuotesApiSlice';
+import { useGetFuelQuotesQuery } from './fuelQuotesApiSlice';
+import { memo } from 'react';
 
 import useAuth from '../../hooks/useAuth';
 
 const FuelQuote = ({ fuelQuoteId }) => {
     const { id } = useAuth()
 
-    const fuelQuote = useSelector(state => selectFuelQuoteById(state, fuelQuoteId))
+    // const fuelQuote = useSelector(state => selectFuelQuoteById(state, fuelQuoteId))
+    const { fuelQuote } = useGetFuelQuotesQuery("fuelQuotesHistory", {
+        selectFromResult: ({ data }) => ({
+            fuelQuote: data?.entities[fuelQuoteId]
+        }),
+    })
 
     if (fuelQuote && fuelQuote.user === id) {
         return (
@@ -22,4 +29,7 @@ const FuelQuote = ({ fuelQuoteId }) => {
     } else return null
 }
 
-export default FuelQuote
+// Component will only re-render if there are changes in the data
+const memoizedFuelQuote = memo(FuelQuote)
+export default memoizedFuelQuote
+// export default FuelQuote

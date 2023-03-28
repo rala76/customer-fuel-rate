@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
+import useTitle from '../hooks/useTitle';
 
 const Home = () => {
     const { id } = useAuth()
