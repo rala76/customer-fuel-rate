@@ -34,7 +34,8 @@ const login = asyncHandler(async (req, res) => {
                 "address1": foundUser.address1,
                 "city": foundUser.city,
                 "state": foundUser.state,
-                "zipCode": foundUser.zipCode
+                "zipCode": foundUser.zipCode,
+                "numFuelQuotes": foundUser.numFuelQuotes
             }
         },
         process.env.ACCESS_TOKEN_SECRET,
@@ -94,7 +95,8 @@ const refresh = (req, res) => {
                         "address1": foundUser.address1,
                         "city": foundUser.city,
                         "state": foundUser.state,
-                        "zipCode": foundUser.zipCode
+                        "zipCode": foundUser.zipCode,
+                        "numFuelQuotes": foundUser.numFuelQuotes
                     }
                 },
                 process.env.ACCESS_TOKEN_SECRET,

@@ -52,7 +52,7 @@ const UserProfile = ({ user }) => {
     const onEditUserClicked = async (e) => {
         e.preventDefault()
 
-        await updateUser({ id: user.id, name, address1, address2, city, state, zipCode })
+        await updateUser({ id: user.id, name, address1, address2, city, state, zipCode, numFuelQuotes: user.numFuelQuotes })
     }
 
     // const onDeleteUserClicked = async () => {
@@ -106,7 +106,7 @@ const UserProfile = ({ user }) => {
 
                                             <div className="col">
                                             <label htmlFor="zipCode" className="zipcode">Zip code:</label>
-                                            <input type="text" id="zipCode" className="form-control form-control-sm" minlength="5" maxLength="9" value={zipCode} onChange={onZipCodeChanged} required/>
+                                            <input type="text" id="zipCode" className="form-control form-control-sm" minLength="5" maxLength="9" value={zipCode} onChange={onZipCodeChanged} required/>
                                             </div>
                                         </div>
 
