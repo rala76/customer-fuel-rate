@@ -33,6 +33,10 @@ const userSchema = new mongoose.Schema({
     zipCode: {
         type: String,
         required: true
+    },
+    numFuelQuotes: {
+        type: Number,
+        default: 0
     }
 })
 

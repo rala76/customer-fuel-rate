@@ -21,7 +21,7 @@ const getAllUsers = asyncHandler(async (req, res) => {
 // @route POST /users
 // @access Private
 const createNewUser = asyncHandler(async (req, res) => {
-    const { username, password, name, address1, address2, city, state, zipCode } = req.body
+    const { username, password, name, address1, address2, city, state, zipCode, numFuelQuotes } = req.body
 
     // Confirm data
     if (!username || !password || !name || !address1 || !city || !state || !zipCode) {
@@ -47,7 +47,8 @@ const createNewUser = asyncHandler(async (req, res) => {
         "address2": address2,
         "city": city,
         "state": state,
-        "zipCode": zipCode
+        "zipCode": zipCode,
+        "numFuelQuotes": numFuelQuotes
     }
 
     // Create and store new user
@@ -64,7 +65,7 @@ const createNewUser = asyncHandler(async (req, res) => {
 // @route PATCH /users
 // @access Private
 const updateUser = asyncHandler(async (req, res) => {
-    const { id, username, password, name, address1, address2, city, state, zipCode } = req.body
+    const { id, username, password, name, address1, address2, city, state, zipCode, numFuelQuotes } = req.body
 
     // Confirm data (username, password, address2 are optional)
     if (!id || !name || !address1 || !city || !state || !zipCode) {
@@ -107,6 +108,7 @@ const updateUser = asyncHandler(async (req, res) => {
     user.city = city
     user.state = state
     user.zipCode = zipCode
+    user.numFuelQuotes = numFuelQuotes
 
     if (password) {
         // Hash password
