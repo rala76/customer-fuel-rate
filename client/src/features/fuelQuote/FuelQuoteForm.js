@@ -158,6 +158,15 @@ const FuelQuoteForm = () => {
         await updateUser(userObject)
     }
 
+    const disablePastDate = () => {
+        const today = new Date()
+        const dd = String(today.getDate() + 1).padStart(2, "0")
+        const mm = String(today.getMonth() + 1).padStart(2, "0") //January is 0
+        const yyyy = today.getFullYear()
+
+        return yyyy + "-" + mm + "-" + dd
+    }
+
     const content = (
         <div className="fuel-quote-form-background">
             <section id="fuelQuoteForm">
@@ -172,18 +181,18 @@ const FuelQuoteForm = () => {
                                         <div className="quote-form-input-box has-validation">
                                             <input type="number" min="1" step="any" value={gallonsRequested} onChange={onGallonsRequestedChanged} required />
                                             <label>Gallons Requested</label>
-                                            <div className="invalid-feedback">Gallons requested required</div>
+                                            <div className="invalid-feedback">Valid amount of gallons required</div>
                                         </div>
 
-                                        <div className="quote-form-input-box">
+                                        <div className="quote-form-input-box mt-5">
                                             <input type="text" placeholder=" " value={deliveryAddress} readOnly />
                                             <label>Delivery Address</label>
                                         </div>
 
                                         <div className="has-validation">
                                             <label>Delivery Date</label>
-                                            <input type="date" className="form-control form-control-sm text-center my-1" value={deliveryDate} onChange={onDeliveryDateChanged} required />
-                                            <div className="invalid-feedback">Delivery date required</div>
+                                            <input type="date" min={disablePastDate()} className="form-control form-control-sm text-center my-1" value={deliveryDate} onChange={onDeliveryDateChanged} required />
+                                            <div className="invalid-feedback">Valid delivery date required</div>
                                         </div>
 
                                         <div className="form-group">
