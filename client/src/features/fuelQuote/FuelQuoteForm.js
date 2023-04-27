@@ -38,7 +38,6 @@ const FuelQuoteForm = () => {
         let rateHistoryFactor
         if (numFuelQuotes > 0) { // Client requested fuel before (fuel history)
             rateHistoryFactor = 0.01
-            // console.log(`yes2`)
         } else { // Client has not requested fuel yet (no fuel history)
             rateHistoryFactor = 0
         }
@@ -56,10 +55,9 @@ const FuelQuoteForm = () => {
         let pricePerGallon
         pricePerGallon = currentPricePerGallon + margin
 
-        console.log(`${currentPricePerGallon} * (${locationFactor} - ${rateHistoryFactor} + ${gallonsRequestedFactor} + ${companyProfitFactor})`)
-        console.log(`=${margin}`)
-        console.log(pricePerGallon)
-        
+        // console.log(`${currentPricePerGallon} * (${locationFactor} - ${rateHistoryFactor} + ${gallonsRequestedFactor} + ${companyProfitFactor})`)
+        // console.log(`=${margin}`)
+        // console.log(pricePerGallon)
 
         return pricePerGallon
     }
